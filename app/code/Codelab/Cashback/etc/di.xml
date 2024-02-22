@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Catalog\Block\Product\ProductList\Upsell" type="Codelab\Cashback\Block\Product\ProductList\Upsell" />
+    <preference for="Codelab\Cashback\Api\CashbackManagementInterface" type="Codelab\Cashback\Model\CashbackManagement"/>
+    <preference for="Mageplaza\GiftCard\Block\Sales\Order\Discount" type="Codelab\Cashback\Block\Sales\Order\Discount"/>
+    <preference for="Mageplaza\GiftCard\Block\Adminhtml\Order\Total\Discount" type="Codelab\Cashback\Block\Adminhtml\Order\Total\Discount"/>
+    <!-- <preference for="Mageplaza\GiftCard\Model\Transaction\Action" type="Codelab\Cashback\Model\Transaction\Action"/> -->
+    <!-- <preference for="Mageplaza\GiftCard\Plugin\Quote\CartTotalRepository" type="Codelab\Cashback\Plugin\Quote\CustomCartTotalRepository"/> -->
+    <!-- <preference for="Mageplaza\GiftCard\Model\Transaction" type="Codelab\Cashback\Model\Transaction"/> -->
+    <!-- <preference for="Mageplaza\GiftCard\Model\Product\Type\GiftCard" type="Codelab\Cashback\Model\Product\Type\GiftCard"/> -->
+    <preference for="Mageplaza\GiftCard\Block\Adminhtml\Customer\Edit\Tab\GiftCard" type="Codelab\Cashback\Block\Adminhtml\Customer\Edit\Tab\GiftCard"/>
+    <type name="Codelab\Cashback\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">CodelabCashbackLogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Codelab\Cashback\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Mageplaza\GiftCard\Helper\Sms">
+        <plugin name="codelab_whatsapp_giftcard" type="Codelab\Cashback\Plugin\Helper\SmsPlugin" sortOrder="100"/>
+    </type>
+    <type name="Mageplaza\Osc\Model\DefaultConfigProvider">
+        <plugin name="add_mp_gift_card_to_checkout_config" type="Codelab\Cashback\Plugin\CheckoutConfigPlugin"/>
+    </type>
+    <!--Plugin cart total repository to add gift card used to totalsData-->
+    <type name="Magento\Quote\Api\CartTotalRepositoryInterface">
+        <plugin name="cashback_cart_total_repository_plugin" type="Codelab\Cashback\Plugin\Quote\CartTotalRepository"/>
+    </type>
+</config>

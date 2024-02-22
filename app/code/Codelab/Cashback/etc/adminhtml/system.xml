@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="codelab" translate="label" sortOrder="10">
+            <label>Codelab</label>
+        </tab>
+        <section id="cashback" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Cashback Configuration</label>
+            <tab>codelab</tab>
+            <resource>Codelab_Cashback::config_cashback</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="message" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cashback Message</label>
+                    <comment>Use {{amount}} to represent the cashback amount in the message(percentage amount).</comment>
+                </field>
+                <field id="cashback_message" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Success Page Cashback Message</label>
+                    <comment>Enter the custom message for cashback.</comment>
+                </field>
+                <field id="cashback_checkout_message" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checkout Page Message</label>
+                    <comment>Enter the custom message for cashback when user not logged in or user not exists.</comment>
+                </field>
+            </group>
+            <group id="cashback_settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cashback Settings</label>
+                <field id="credit_days" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cashback Points in Credit Days</label>
+                    <validate>validate-number</validate> <!-- Ensure the input is a number -->
+                    <comment>Specify the number of credit days for cashback points.</comment>
+                </field>
+                <field id="expire_days" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Points Expire In (days)</label>
+                    <validate>validate-number</validate> <!-- Ensure the input is a number -->
+                    <comment>Specify the number of days after which points will expire.</comment>
+                </field>
+            </group>
+            <group id="setting_whatsapp" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Whatsapp Message Setting</label>
+                
+				<field id="whatsapp_enable" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="10" translate="label" type="select">
+					<label>Enable:</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				
+				<field id="whatsapp_business_no" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>WhatsApp Business No:</label>
+					<comment>WhatsApp Business No</comment>
+					<depends>
+						<field id="whatsapp_enable">1</field>
+					</depends>
+                </field>
+				<field id="phonenoid" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Phone number ID:</label>
+                    <comment>Phone number ID</comment>
+					<depends>
+						<field id="whatsapp_enable">1</field>
+					</depends>
+                </field>
+				<field id="token" translate="label comment" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" type="textarea">
+                    <label>Whatsapp Token</label>
+                    <comment>Whatsapp Token</comment>
+					<depends>
+						<field id="whatsapp_enable">1</field>
+					</depends>
+                </field>
+				<field id="Verify_token" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+					<label>Verify Token</label>
+					<comment>Verify Token</comment>
+					<depends>
+						<field id="whatsapp_enable">1</field>
+					</depends>
+				</field>
+			</group>
+        </section>
+    </system>
+</config>

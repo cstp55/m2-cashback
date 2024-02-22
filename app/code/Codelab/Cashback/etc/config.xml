@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Framework:etc/config.xsd">
+    <default>
+        <codelab_cashback>
+            <general>
+                <enabled>1</enabled> <!-- 1 for enabled, 0 for disabled -->
+                <message>cashback amount is {{amount}}</message>
+                <cashback_message>Congratulations! You will get {{amount}} cashback with this order.</cashback_message>
+                <cashback_checkout_message>It seems your account is not exist. Please create account for cashback will credit in to your wallet.</cashback_checkout_message>
+            </general>
+            <cashback_settings>
+                <credit_days>30</credit_days> <!-- Default number of credit days -->
+                <expire_days>365</expire_days> <!-- Default number of expiry days -->
+            </cashback_settings>
+        </codelab_cashback>
+    </default>
+</config>

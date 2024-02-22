@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.stock.sku">
+            <block class="Codelab\Cashback\Block\Cashback" name="codelab.cashback.message" template="Codelab_Cashback::cashback.phtml"/>
+        </referenceBlock>
+        <referenceContainer name="product.info.social">
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.socialmedia" template="Codelab_Cashback::product/view/socialmedia.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

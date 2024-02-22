@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<body>
+    <referenceContainer name="content">
+        <referenceBlock name="bss.get.order.details">
+            <block class="Codelab\Cashback\Block\CashbackDetails" name="codelab.cashback.details" template="Codelab_Cashback::cashback_details.phtml"/>
+        </referenceBlock>
+    </referenceContainer>
+</body>

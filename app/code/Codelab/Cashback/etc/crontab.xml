@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/crontab.xsd">
+    <group id="default">
+        <job name="add_cashback_to_wallet" instance="Codelab\Cashback\Cron\AddCashback" method="execute">
+            <schedule>*/5 * * * *</schedule> 
+        </job>
+        <job name="expire_cashback_to_wallet" instance="Codelab\Cashback\Cron\ExpireCashback" method="execute">
+            <schedule>*/10 * * * *</schedule> 
+        </job>
+    </group>
+</config>

@@ -1,0 +1,37 @@
+<?php
+namespace Codelab\Cashback\ViewModel;
+
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\View\Element\Block\ArgumentInterface;
+
+class Cashback extends ArgumentInterface
+{
+    protected $scopeConfig;
+
+    public function __construct(
+        Template\Context $context,
+        ScopeConfigInterface $scopeConfig,
+        array $data = []
+    ) {
+        parent::__construct($context, $data);
+        $this->scopeConfig = $scopeConfig;
+    }
+
+    public function isModuleEnabled()
+    {
+        return $this->scopeConfig->getValue('cashback/general/enabled', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getCashbackAmount($product)
+    {
+        print_r(json_encode($product->getData())); die;
+        return $product->getData('cashback');
+    }
+    public function getCashbackMessage()
+    {
+        $message = $this->scopeConfig->getValue('cashback/general/message', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        return str_replace('{{amount}}', $this->getCashbackAmount(), $message);
+    }
+
+}

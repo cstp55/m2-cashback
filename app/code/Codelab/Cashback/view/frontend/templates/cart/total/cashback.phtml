@@ -1,0 +1,9 @@
+<?php
+$totalCashback = $block->getTotalCashbackAmount();
+if ($totalCashback > 0) :
+?>
+    <div class="cashback-info">
+        <!-- <h3>Total Cashback</h3> -->
+        <p>You will get a cashback of <?= $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($totalCashback, true, false); ?> for the products in your cart.</p>
+    </div>
+<?php endif; ?>

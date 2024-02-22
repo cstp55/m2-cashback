@@ -1,0 +1,14 @@
+<?php
+$cashbackAmount = $block->getCashbackAmount();
+if ($cashbackAmount) {  
+   $amount = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($cashbackAmount, true, false);
+   $message = $this->helper('Codelab\Cashback\Helper\Data')->getCashbackSuccessMessage($amount);
+   ?>
+<div style="padding: 20px; background-color: #f5f5f5; text-align: center; border-radius: 5px; margin: 20px 0;">
+    <p style="font-size: 18px; margin: 0;">
+        <i class="fa fa-check-circle" style="color: green; font-size: 24px;"></i>
+        Congratulations! You will get <?= $amount ?> cashback with this order. 
+    </p>
+</div>
+
+<?php  } ?>

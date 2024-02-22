@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Accessible by anyone, including anonymous and logged-in users -->
+    <route url="/V1/cashback/value/:cartId" method="GET">
+        <service class="Codelab\Cashback\Api\CashbackManagementInterface" method="getCashbackValueForCart"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <!-- Intended for logged-in customers only -->
+    <route url="/V1/carts/mine/cashbackcredit/:amount" method="PUT">
+        <service class="Codelab\Cashback\Api\CashbackManagementInterface" method="credit"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+</routes>

@@ -1,0 +1,6 @@
+<?php 
+if ($block->isModuleEnabled() && $block->getCashbackAmount()): ?>
+    <div class="cashback-message" style="background: #fdde01;padding: 5px;border-radius: 8px;width: fit-content;">
+     <?= $block->getCashbackMessage() ?>
+    </div>
+<?php endif; ?>
