@@ -2,7 +2,7 @@
 /**
  * Aprilo Software.
  *
- * @category Aprilo
+ * @category Aprilo Software Private Limited
  * @package aprilo_Cashback
  * @author Aprilo
  * @copyright Copyright (c) Aprilo Software Private Limited (https://Aprilo.com)

@@ -1,4 +1,13 @@
 <?xml version="1.0"?>
+<!-- /**
+ * Aprilo Software.
+ *
+ * @category Aprilo Software Private Limited
+ * @package aprilo_Cashback
+ * @author Aprilo
+ * @copyright Copyright (c) Aprilo Software Private Limited (https://Aprilo.com)
+ * @license https://store.Aprilo.com/license.html
+ */ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Sales:etc/sales.xsd">
     <!-- <section name="quote">
         <group name="totals">
